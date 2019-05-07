@@ -1,0 +1,121 @@
+
+fancy_on_boarding:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import 'package:auction/main.dart';
+import 'package:flutter/material.dart';
+import 'package:intro_views_flutter/Models/page_view_model.dart';
+import 'package:intro_views_flutter/intro_views_flutter.dart';
+import 'package:transformer_page_view/transformer_page_view.dart';
+
+import 'package:fancy_on_boarding/fancy_on_boarding.dart';
+import 'package:fancy_on_boarding/page_model.dart';
+
+void main() => runApp(BoardingScreen());
+
+class BoardingScreen extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+
+        primarySwatch: Colors.blue,
+      ),
+      home: MyBoardingPage(),
+    );
+  }
+}
+
+class MyBoardingPage extends StatefulWidget
+{
+  @override
+  _MyBoardingPage createState() => new _MyBoardingPage();
+}
+
+class _MyBoardingPage extends State<MyBoardingPage> {
+
+  final pageList = [
+    PageModel(
+        color: const Color(0xFF678FB4),
+        heroAssetPath: 'assets/images/slide_1.png',
+        title: Text('Hotels',
+            style: TextStyle(
+              fontWeight: FontWeight.w800,
+              color: Colors.white,
+              fontSize: 34.0,
+            )),
+        body: Text('All hotels and hostels are sorted by hospitality rating',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18.0,
+            )),
+        iconAssetPath: 'assets/images/slide_1.png'),
+    PageModel(
+        color: const Color(0xFF65B0B4),
+        heroAssetPath: 'assets/images/slide_2.png',
+        title: Text('Banks',
+            style: TextStyle(
+              fontWeight: FontWeight.w800,
+              color: Colors.white,
+              fontSize: 34.0,
+            )),
+        body: Text(
+            'We carefully verify all banks before adding them into the app',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18.0,
+            )),
+        iconAssetPath: 'assets/images/slide_2.png'),
+    PageModel(
+      color: const Color(0xFF9B90BC),
+      heroAssetPath: 'assets/images/slide_3.png',
+      title: Text('Store',
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            color: Colors.white,
+            fontSize: 34.0,
+          )),
+      body: Text('All local stores are categorized for your convenience',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18.0,
+          )),
+      iconAssetPath: 'assets/images/slide_3.png',
+    ),
+  ];
+
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: FancyOnBoarding(
+        pageList: pageList,
+        mainPageRoute: '/main',
+      ),
+    );
+  }
+}
+
+
